@@ -7,8 +7,11 @@ namespace FriendlyPetAPI.Models
         public string? Endereco { get; set; }
         public int CategoriaId { get; set; }
         public bool AceitaPet { get; set; }
-        public string? Descricao { get; set; }
+        public string? Descricao { get; set; }     
 
         public Categoria? Categoria { get; set; }
+
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
     }
 }

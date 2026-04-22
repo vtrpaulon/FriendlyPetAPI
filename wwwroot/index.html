@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FriendlyPet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+<h2>FriendlyPet - Mapa</h2>
+<div id="map" style="height: 500px;"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    var map = L.map('map').setView([-22.3246, -49.0871], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    fetch('http://localhost:5063/api/locais')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(local => {
+                if (local.latitude && local.longitude) {
+                    L.marker([local.latitude, local.longitude])
+                        .addTo(map)
+                        .bindPopup(`<b>${local.nome}</b><br>${local.endereco}`);
+                }
+            });
+        });
+</script>
+
+</body>
+</html>
