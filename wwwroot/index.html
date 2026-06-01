@@ -9,6 +9,25 @@
 <h2>FriendlyPet - Mapa</h2>
 <div id="map" style="height: 500px;"></div>
 
+<div id="cadastro">
+    <h3>Cadastrar Local</h3>
+    <form>    
+        <input type="text" id="nome" placeholder="Nome" required>
+
+        <input type="text" id="cidade" placeholder="Cidade" required>
+
+        <input type="text" id="endereco" placeholder="Endereço" required>
+
+        <input type="number" step="any" id="latitude" placeholder="Latitude" required>
+
+        <input type="number" step="any" id="longitude" placeholder="Longitude" required>
+
+        <button type="submit">
+            Cadastrar
+        </button>
+    </form>
+</div>
+
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
